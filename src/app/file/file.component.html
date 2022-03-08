@@ -1,0 +1,5 @@
+File Name : <p [textContent]="file.fileName"></p>
+<!-- can use pipe to show size in MB,KB -->
+Size: <p [textContent]="file.fileSize + ' bytes'"></p>
+<button (click)="download(file)" class="btn btn-success">Download</button>
+

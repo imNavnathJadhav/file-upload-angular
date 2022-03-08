@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button class='btn btn-info me-2' (click)="file.click()">Select File</button>
+      <span *ngIf="selectedFile">{{selectedFile.name}}</span>
+      <button class='btn btn-info' [disabled]="!selectedFile" (click)="uploadFile()">Upload File</button>
+      <input (change)="onFileChange($event)" class="d-none" type="file" #file>
+    </div>
+    <div class="col-md-6">
+    </div>
+  </div>
+
+  <div class="row my-4">
+    <ng-container *ngFor="let file of fileList$ | async">
+      <div class="col-md-4 my-4">
+        <file [file]="file" (downloadFile)="download($event)"></file>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
